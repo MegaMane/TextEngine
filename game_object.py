@@ -1,4 +1,5 @@
 from itertools import count
+from lexer import ParseTree
 from typing import List, Optional, Dict
 
 
@@ -11,6 +12,9 @@ class GameObject:
         self.id = next(self._objectid)
         self.name = name
         self.description = description
+        self.commands = {}
+        self.commands["look"] = self.look
+        self.commands["examine"] = self.examine
 
         if key_value:
             self.key_value = key_value
@@ -18,6 +22,12 @@ class GameObject:
             self.key_value = self.create_key_value(name)
 
         self.objects_by_key[self.key_value] = self
+
+    def look(self, tokens: ParseTree):
+        print("looking now")
+
+    def examine(self, tokens: ParseTree):
+        print("Upon further examination...I see nothing special.")
 
     def create_key_value(self, input_string: str, casing: str = "camel"):
         '''Format the string so that it returns an id with no spaces, 
