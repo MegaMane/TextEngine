@@ -18,7 +18,12 @@ if __name__ == "__main__":
     for direction in Direction:
         print(direction)
 
-print(repr(Direction.SOUTH))
+    print(repr(Direction.SOUTH))
 
-print(Direction.NORTH.value)
+    print(Direction.NORTH.value)
+
+    try:
+        print(Direction["GORTH"])
+    except KeyError:
+        print("Not a valid direction")
 
