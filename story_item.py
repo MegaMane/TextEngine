@@ -2,15 +2,13 @@ from game_object import GameObject
 
 
 class StoryItem(GameObject):
-    def __init__(self, name: str, descriptions: dict, location_key=None, is_portable=False, weight=0,
+    def __init__(self, name: str, description: str, location_key=None, is_portable=False, weight=0,
                  key_value: str = ""):
         self._location_key = location_key
         self.is_portable = is_portable
         self.weight = weight
         self.slots_occupied = 1
-        self.descriptions = descriptions
-        self.active_description = descriptions["main"]
-        super().__init__(name, descriptions["main"], key_value)
+        super().__init__(name, description, key_value)
 
     @property
     def location_key(self):
