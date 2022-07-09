@@ -75,10 +75,6 @@ similar to how you would in an rpg
 Dialogue choices can trigger results (I.E. Get an item, Game over, Unlock a door, Get into a fight)
 
 Events:
-
-Reference: https://www.geeksforgeeks.org/mimicking-events-python/
-https://www.delftstack.com/howto/python/events-in-python/
-
 Timed events or other external triggers can change the game environment 
 NPC's, or Time running out/turns running out
 
@@ -108,3 +104,26 @@ Room
 Character
 Player
 NPC
+
+
+
+To Do:
+        /*
+         * Move Between Rooms with unlocked doors {complete}
+         * Look at surroundings {complete}
+         * Examine Objects {complete}
+         * Take and Drop Items {complete}
+         * Unlock doors with correct key {complete}
+         * place and retrieve items locker, chest {complete}
+		 * lock/unlock/open containers
+         * use special context sensitive items * use phone/keypad/vending machine/magic medicine etc
+         * trigger game events or "cut scenes" and update game state as needed {complete}
+		 * Implement Choices that are rememberd in a PlayerChoices collection
+         * talk to people
+         * equip special items {these don't count in inventory}
+         * fight
+         * add a splash screen
+         * Unity
+         * add visuals
+         * add sound
+        */

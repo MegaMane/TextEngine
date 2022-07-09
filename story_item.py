@@ -22,6 +22,43 @@ class StoryItem(GameObject):
         else:
             raise ValueError(f"Location Key {value} does not exist. Please check again.")
 
+class Container(StoryItem):
+    def __init__(self, name: str, description: str, slots: int = 10, items: list = [], location_key: str = None, is_portable: bool = False,
+                 weight: int = 999, key_value: str = ""):
+        self.items = []
+        self.slots_occupied = 0
+        self.slots = slots
+        super().__init__(name, description, location_key, is_portable, weight)
+
+    def add_items(self, items):
+        for item in items:
+            if isinstance(item, StoryItem):
+                if item.slots_occupied <= (self.slots - self.slots_occupied):
+                    item.location_key = self.key_value
+                    self.items.append(item)
+                    self.slots_occupied += item.slots_occupied
+                else:
+                    raise OverflowError(f"Container ony has {self.slots} slots and {self.slots_occupied} are full."
+                                        f"{item.name} takes up {item.slots_occupied} slots. That shit won't fit!")
+            else:
+                raise ValueError ("You can't put a non-story item into a container")
+
+class Prop(StoryItem):
+    pass
+
+class Television(Prop):
+    pass
+
+class Phone(Prop):
+    pass
+
+class Currency(StoryItem):
+    pass
+
+
+
+
+
 
 if __name__ == "__main__":
     from lexer import ParseTree
@@ -30,5 +67,5 @@ if __name__ == "__main__":
     print(trinket.location_key)
     trinket.location_key = "table"
     print(trinket.location_key)
-    print(trinket.active_description)
+    #print(trinket.active_description)
     print(trinket.commands["examine"](ParseTree()))

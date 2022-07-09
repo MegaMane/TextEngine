@@ -11,6 +11,20 @@ def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
+promptName = input("Hello, lets play a game...what is your name?\n")
+
+print("Welcome " + promptName + " here's an easy question for most...")
+
+playerSex = '?'
+
+while playerSex.upper() != 'MALE' or playerSex.upper() != 'FEMALE':
+    playerSex  = input("Are you Male or Female?\n")
+
+    if playerSex.upper() == 'MALE' or playerSex.upper() == 'FEMALE':
+        break
+    else:
+        print("last time I checked there were only two options for humans...")
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
