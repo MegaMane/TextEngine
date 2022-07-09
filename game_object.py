@@ -120,13 +120,19 @@ class GameObject:
         else:
             raise ValueError("casing must be either pascal or camel")
 
-        result = ''.join(words) + '-' + str(self.id).zfill(5)
+        result = ''.join(words)
+
+        if GameObject.objects_by_key.get(result):
+            #The keyvalue is not unique it already exists in the global game dict
+            #so we make it unique by concating the global id (guaranteed to be unique)
+            result = ''.join(words) + '-' + str(self.id).zfill(5)
         return result
 
 
 if __name__ == '__main__':
     obj = GameObject("Test Obj", "Test Obj", "myKey-, val!$")
     ob2 = GameObject("Test Obj2", "Test Obj2")
+    obj3 = GameObject("Test Obj2", "Test Obj2")
     #print(obj.create_key_value("test room", "pascal"))
     #print(obj.__dict__)
     print(GameObject.objects_by_key)

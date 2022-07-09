@@ -1,0 +1,127 @@
+{
+    "roomCount": 1,
+    "rooms": [
+        {
+            "type": "Room",
+            "name": "Room 201",
+            "keyValue": "room201",
+            "descriptions": [
+                {
+                    "label": "Main", 
+                    "text": "As you look around the hotel room you see an old TV with rabbit ears that looks like it came straight out of the 1950's. Against the wall there is a beat up night stand with a little drawer built into it and an old phone on top. Next to it is a lumpy old bed that looks like it's seen better days, with a dark brown stain on the sheets and a funny smell coming from it. There is an obnoxious orange couch in the corner next to a small window smudged with sticky purple hand prints. The stuffing is coming out of the cushions which are also spotted with purple, and the floor is covered with cans of Fast Eddie's Colon Cleanse. The door that leads to the hallway is to the east. There is a door to the west that leads to that sweet sweet porcelain throne."
+                }
+            ],
+            "storyItems": [
+                {
+                    "type": "Prop",
+                    "name": "Night Stand",
+                    "keyValue": "nightStand-room201",
+                    "descriptions":[
+                        {
+                            "label": "Main", 
+                            "text": "An old beat up night stand with a little drawer built into it."
+                        }
+                    ] ,
+                    "location": "room201",
+                    "portable": false,
+                    "weight": 999,
+                    "container": {
+                        "type": "Container",
+                        "name": "Drawer",
+                        "keyValue": "nightStandDrawer-room201",
+                        "description": "small wooden drawer.",
+                        "location": "nightStand-room201",
+                        "portable": false,
+                        "weight": 999,
+                        "slots": 10,
+                        "items": [
+                            {
+                                "type": "Currency",
+                                "name": "Coins",
+                                "keyValue": "coins-nightStandDrawer-room201",
+                                "description": "Wow a whole 30 cents!",
+                                "location": "nightStandDrawer-room201",
+                                "portable": true,
+                                "weight": 0,
+                                "slotsOccupied": 1,
+                                "value": 0.3   
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "Phone",
+                    "name": "Old Phone",
+                    "location": "room201"
+                   
+                },
+                {
+                    "name": "Bed" 
+                 },  
+                 {
+                    "type": "Television",
+                    "name": "Old TV",
+                    "location": "room201",
+                    "channels":[
+                        "Whenever I feel like a sweaty slob, there is one assurance that gives me peace of mind. Deodorant. Just one wipe under each arm pit and I am good to go for days. Heck, I don't even need to shower for one whole week.That's how good this shit is.",
+                        "Ever sit on a toilet and have the never ending wipe?  Well, those days are over. I've invented one wipes.  A new form of toilet paper that contains a solution where with just one wipe, you are fresh and clean. Done deal.",
+                        "Well, I'm your Vita-vega-vittival girl. Are you tired? Run-down? Listless? Do you poop out at parties? Are you unpoopular? Well, are you? The answer to all your problems is in this little ol' bottle…Vitameatavegemin. That's it. Vitameatavegemin contains vitamins, meat, meg-e-tables, and vinerals. So why don't you join the thousands of happy , peppy people and get a great big bottle of Vita-veaty-vega-meany-minie-moe-amin. I'll tell you what you have to do. You have to take a whole tablesppon after every meal. It's so tasty, too: it's just like candy. So everybody get a bottle of…this stuff.",
+                        "Static..."
+                    ],
+                    "turnOnResponse": "You turn on the TV...",
+                    "turnOffResponse": "The TV flickers then goes black"
+                 },
+                 {
+                    "name": "Orange Couch"
+                 },
+                 {
+                    "name": "Window"
+                 },
+                 {
+                    "name": "Hand Prints"
+                 },
+                 {
+                    "name": "Cans",
+                    "type": "StoryItem"
+                 }                             
+            ],
+            "exits":{
+                "north": null,
+                "northEast": null,
+                "east": null,
+                "southEast": null,
+                "south": null,
+                "southWest": null,
+                "west": null,
+                "northWest": null
+            },
+            "npcs":[]
+        }
+    ],
+    "exits": [
+        {
+            "name": "Bathroom Door",
+            "keyValue": "bathroomDoor-room201",
+            "description": "The bathroom door",
+            "connections": [
+                {
+                    "location": "room201Bathroom",
+                    "direction": "East",
+                    "connection": "room201",
+                    "description": "Bathroom Door (Bathroom Side)",
+                    "isLocked": false,
+                    "keyObjectKeyValue": null
+                },
+                {
+                    "location": "room201",
+                    "direction": "West",
+                    "connection": "room201Bathroom",
+                    "description": "Bathroom Door (Room Side)",
+                    "isLocked": false,
+                    "keyObjectKeyValue": null
+                }
+            ]
+
+        }
+    ]
+}
