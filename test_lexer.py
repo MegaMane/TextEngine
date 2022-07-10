@@ -45,11 +45,11 @@ class LexerTest(unittest.TestCase):
 
         self.lexer = Lexer(self.commands)
 
-        GameObject("Chicken Soup", "For the soul")
-        GameObject("Hotel Clerk", "Asshole")
-        GameObject("table", "It's got four legs!")
-        GameObject("light", "It turns on and off")
-        GameObject("kitchen", "you cook food here")
+        GameObject("Chicken Soup", {"Main":"For the soul"})
+        GameObject("Hotel Clerk", {"Main":"Asshole"})
+        GameObject("table", {"Main":"It's got four legs!"})
+        GameObject("light", {"Main":"It turns on and off"})
+        GameObject("kitchen", {"Main":"you cook food here"})
 
     def test_invalid_direction(self):
         parsed_command = self.lexer.tokenize("Go Forth", GameObject.objects_by_key)

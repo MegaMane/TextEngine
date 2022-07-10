@@ -29,7 +29,12 @@
                         "type": "Container",
                         "name": "Drawer",
                         "keyValue": "nightStandDrawer-room201",
-                        "description": "small wooden drawer.",
+                        "descriptions":[
+                            {
+                                "label": "Main", 
+                                "text": "small wooden drawer."
+                            }
+                        ] ,
                         "location": "nightStand-room201",
                         "portable": false,
                         "weight": 999,
@@ -39,7 +44,12 @@
                                 "type": "Currency",
                                 "name": "Coins",
                                 "keyValue": "coins-nightStandDrawer-room201",
-                                "description": "Wow a whole 30 cents!",
+                                "descriptions":[
+                                    {
+                                        "label": "Main", 
+                                        "text": "Wow a whole 30 cents!"
+                                    }
+                                ] ,
                                 "location": "nightStandDrawer-room201",
                                 "portable": true,
                                 "weight": 0,
@@ -61,6 +71,13 @@
                  {
                     "type": "Television",
                     "name": "Old TV",
+                    "keyValue": "oldtv-room201",
+                    "descriptions":[
+                        {
+                            "label": "Main", 
+                            "text": "An old TV with rabbit ears that looks like it came straight out of the 1970's."
+                        }
+                    ] ,
                     "location": "room201",
                     "channels":[
                         "Whenever I feel like a sweaty slob, there is one assurance that gives me peace of mind. Deodorant. Just one wipe under each arm pit and I am good to go for days. Heck, I don't even need to shower for one whole week.That's how good this shit is.",
@@ -96,16 +113,32 @@
                 "northWest": null
             },
             "npcs":[]
+        },
+        {
+            "type": "Room",
+            "name": "Room 201 - Bathroom",
+            "keyValue": "bathroom-room201",
+            "descriptions": [
+                {
+                    "label": "Main", 
+                    "text": "You crack open the door to the bathroom and it looks like it's seen better days. From the smell of it, it looks like someone beat you to it and narrowly escaped a hard fought battle with an eight pound burrito. The sink is old,yellowed and caked with brown muck in the corners. The mirror is cracked and something is written on it in red. You can't quite make it out. But you don't care...you've gotta take a shit! You rush to be the first in line to make a deposit in the porcelain bank. But just as you are about to drop it like it's hot you notice there is an angry Great Dane guarding the toilet and he looks hungry! You quickly shut the door and somehow manage to not lose your shit (literally). Looks like you have to find somewhere else to go if you value your junk...and your life."
+                }
+            ]          
         }
     ],
     "exits": [
         {
             "name": "Bathroom Door",
             "keyValue": "bathroomDoor-room201",
-            "description": "The bathroom door",
+            "descriptions":[
+                {
+                    "label": "Main", 
+                    "text": "The Bathroom Door"
+                }
+            ] ,
             "connections": [
                 {
-                    "location": "room201Bathroom",
+                    "location": "bathroom-room201",
                     "direction": "East",
                     "connection": "room201",
                     "description": "Bathroom Door (Bathroom Side)",
@@ -115,7 +148,7 @@
                 {
                     "location": "room201",
                     "direction": "West",
-                    "connection": "room201Bathroom",
+                    "connection": "bathroom-room201",
                     "description": "Bathroom Door (Room Side)",
                     "isLocked": false,
                     "keyObjectKeyValue": null

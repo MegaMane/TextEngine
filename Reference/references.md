@@ -4,7 +4,7 @@ https://github.com/JonathanMurray/dialog-tree-py
 https://www.gamedeveloper.com/design/defining-dialogue-systems
 
 ### Documenting Python Code
-Documenting Python Code
+https://realpython.com/documenting-python-code/
 
 ### Events
 
@@ -33,6 +33,11 @@ https://realpython.com/python-json/#encoding-and-decoding-custom-python-objects
 
 https://www.pygame.org/wiki/GettingStarted
 https://www.geeksforgeeks.org/python-display-text-to-pygame-window/
+https://www.geeksforgeeks.org/how-to-set-up-the-game-loop-in-pyggame/
+https://www.geeksforgeeks.org/how-to-add-custom-events-in-pygame/
+
+### Python to .exe
+https://towardsdatascience.com/how-to-easily-convert-a-python-script-to-an-executable-file-exe-4966e253c7e9
 
 ### Unit Testing
 

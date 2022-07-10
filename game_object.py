@@ -43,7 +43,7 @@ class GameObject:
     def get_component(key_value:str):
         pass
 
-    def __init__(self, name: str, description: str, key_value: str = None):
+    def __init__(self, name: str, descriptions: dict, key_value: str = None):
         """
         Parameters
         ----------
@@ -59,8 +59,7 @@ class GameObject:
         """
         self.id = next(GameObject._objectid)
         self.name = name
-        self.descriptions = {}
-        self.descriptions["Main"] = description
+        self.descriptions = descriptions
         self.current_description = self.descriptions["Main"]
         self.commands = {}
         self.commands["look"] = self.look
@@ -73,10 +72,10 @@ class GameObject:
 
         GameObject.objects_by_key[self.key_value] = self
 
-    def look(self, tokens: ParseTree):
+    def look(self, tokens: ParseTree) ->str:
         print("looking now")
 
-    def examine(self, tokens: ParseTree):
+    def examine(self, tokens: ParseTree) ->str:
         print("Upon further examination...I see nothing special.")
 
     def create_key_value(self, input_string: str, casing: str = "camel") -> str:
@@ -130,9 +129,9 @@ class GameObject:
 
 
 if __name__ == '__main__':
-    obj = GameObject("Test Obj", "Test Obj", "myKey-, val!$")
-    ob2 = GameObject("Test Obj2", "Test Obj2")
-    obj3 = GameObject("Test Obj2", "Test Obj2")
+    obj = GameObject("Test Obj", {"Main":"Test Obj"}, "myKey-, val!$")
+    ob2 = GameObject("Test Obj2", {"Main":"Test Obj2","Examine":"Looking Closer"},)
+    obj3 = GameObject("Test Obj2", {"Main":"Test Obj2"},)
     #print(obj.create_key_value("test room", "pascal"))
     #print(obj.__dict__)
     print(GameObject.objects_by_key)
