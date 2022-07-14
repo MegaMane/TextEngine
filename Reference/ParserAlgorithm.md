@@ -1,3 +1,102 @@
+The Parser
+----------
+
+Taken from learning zil.pdf 
+https://archive.org/details/Learning_ZIL_Steven_Eric_Meretzky_1995
+
+and 
+Benjamin Fan 
+https://groups.google.com/g/rec.arts.int-fiction/c/VpsWZdWRnlA?pli=1
+
+If the parser succeeds in digesting the input, it passes three pieces of
+information on to the rest of the program: the verb, the direct object, and the
+indirect object
+
+>HIT UNCLE OTTO WITH THE HAMMER
+
+You knock some sense back into Uncle Otto, and he stops
+insisting that he's Napoleon Bonaparte.
+
+
+Verb: Hit
+Object: Uncle Otto
+Indirect Object: Hammer
+
+Not every input has an Indirect object.
+
+In such a case,
+when there is no Indirect object, the parser sets the value of Indirect object to false
+
+not every input has a direct object. Some examples of inputs where both direct and indirect object
+are false:
+>YELL  
+>PANIC  
+>INVENTORY  
+<p>Note that you cannot have an indirect object without also having a direct objecgt. Also note that
+every valid input starts with a verb/action.</p>
+
+
+Theory of Parser Construction
+-----------------------------
+
+     For our purposes, "parsing" is defined as taking some input and
+converting it into some output.  In Interactive Fiction (IF), the
+input is what the player types onto the command line ("drop the
+lantern"), and the output is some representation that is usable by the
+underlying game system.
+
+     Unfortunately, much of what has been written about parsers is in
+the context of reading computer programs (such as C and Java) and
+translating them into a runnable form (an executable file or Java
+bytecode).  Because these computer languages are more complex than IF
+input, these parser texts tend to be overly complex.
+
+     Traditionally, there are three steps in parsing:
+
+1. Lexical Analysis.  This involves reading the source and breaking
+them down into "tokens".  Tokens are sequences of characters which
+represent a logical unit with some underlying meaning.  There are
+programs available (LEX and FLEX) which can be used to construct a
+lexical analyzer program.
+
+     Here are some examples.  In the Java program line "if (counter ==
+99)", the six tokens would be "if", "(", "counter", "==", "99", and
+")".  For example, in an sentence "drop the lantern" the tokens would
+be the three individual words "drop", "the", and "lantern".
+
+2. Syntactical Analysis.  This involves taking the sequence of tokens
+and seeing whether the sequence matches certain patterns known to be a
+correct sentence in some particular language.  This set of patterns or
+rules of a language is known as a "grammar".  Syntactical analysis
+usually involves taking the input tokens, the dictionary of all
+possible tokens, and a grammar of the language and parsing them into a
+data structure known as a "parse tree".  There are several techniques
+which can be used to do this.  There are also programs available (YACC
+and Bison) which can be used to construct a syntactical analyzer
+program.
+
+3. Translation.  This involves taking the parse tree and translating
+its contents into a form usable by the machine or interpreter.  In
+terms of IF, the translator might be used convert the parse tree into
+a canonical command.  For example, the commands "hang the cloak",
+"drop cloak", "put the cloak on the hook" might all get translated
+into a canonical "PUT CLOAK" command that the IF program can use.
+
+Grammar Rules
+-------------
+
+Rule 0: The dictionary of all possible verbs, adjectives, direct
+        objects, and indirect objects is *not* known.
+Rule 1: The first word of the input is always a verb.
+Rule 2: Indirect object phrases are always preceded by a preposition.
+Rule 3: Direct object phrases are always positioned before indirect
+        object phrases.
+Rule 4: The dictionary of all possible prepositions is known.
+Rule 5: The dictionary of all possible articles is known.
+
+
+-----------------------------------------------------------------------------------
+
 Here are some design notes for a proposed IF parser, possibly for
 use with JIGSAW.  They might be helpful for people who are thinking of
 writing their own parser.  

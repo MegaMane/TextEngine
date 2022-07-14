@@ -39,11 +39,16 @@ class Lexer:
 
         if preposition_count > 1:
             # exit early shouldn't have more than one preposition in a command
-            tokens.response("I'm not smart enough to understand more than one preposition per command.")
+            tokens.response = ("I'm not smart enough to understand more than one preposition per command.")
             return tokens
 
-        if tokens.direct_object_key is None:
+        if tokens.direct_object_key is None and tokens.verb in ["go", "move", "walk"]:
             self.check_direction(remaining_input, tokens)
+
+        else:
+            obj = ' '.join(remaining_input)
+            article = 'an' if obj[0] in ['a','e','i','o','u'] else 'a'
+            tokens.response = (f"I don't see {article} {obj}")
 
         self.is_parsed(parse_tree=tokens)
         return tokens

@@ -53,6 +53,7 @@ class LexerTest(unittest.TestCase):
 
     def test_invalid_direction(self):
         parsed_command = self.lexer.tokenize("Go Forth", GameObject.objects_by_key)
+        print(vars(parsed_command))
         self.assertEqual(parsed_command.response, "FORTH is not a valid direction.")
 
 

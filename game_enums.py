@@ -14,6 +14,17 @@ class Direction(Enum):
     LEFT = 4
     NORTHWEST = 6
 
+class GameState(Enum):
+    EXPLORATION = 1
+    DIALOGUESCENE = 2
+    GAMEOVER = 3
+
+class Flag(Enum):
+    #the player can pick up and carry the object.
+    TAKEBIT = auto()
+    CONTAINERBIT = auto()
+
+
 if __name__ == "__main__":
     for direction in Direction:
         print(direction)

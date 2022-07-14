@@ -6,6 +6,8 @@ class StoryItem(GameObject):
     def __init__(self, name: str, descriptions:dict, location_key=None, is_portable=False, weight=0,
                  key_value: str = ""):
         self._location_key = location_key
+        self.synonyms = []
+        self.adjectives = []
         self.is_portable = is_portable
         self.weight = weight
         self.slots_occupied = 1

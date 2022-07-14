@@ -124,6 +124,47 @@
                     "text": "You crack open the door to the bathroom and it looks like it's seen better days. From the smell of it, it looks like someone beat you to it and narrowly escaped a hard fought battle with an eight pound burrito. The sink is old,yellowed and caked with brown muck in the corners. The mirror is cracked and something is written on it in red. You can't quite make it out. But you don't care...you've gotta take a shit! You rush to be the first in line to make a deposit in the porcelain bank. But just as you are about to drop it like it's hot you notice there is an angry Great Dane guarding the toilet and he looks hungry! You quickly shut the door and somehow manage to not lose your shit (literally). Looks like you have to find somewhere else to go if you value your junk...and your life."
                 }
             ]          
+        },
+        {
+            "type": "Room",
+            "name": "West Hallway",
+            "keyValue": "westHallway-2f",
+            "descriptions": [
+                {
+                    "label": "Main", 
+                    "text": "You eagerly enter the West hallway. Your room is behind you to the West and more hallway stretches to the East. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
+                },
+                {
+                    "label": "HasPooped", 
+                    "text": "You eagerly enter the hallway leaving your room behind you to the West. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward. To the North you see room 202 to the North East Room 203. To the east the diamond pattern stretches into more hallway. To the South There is a small alcove with a vending machine."
+                }
+            ]          
+        },
+        {
+            "type": "Room",
+            "name": "Vending Alcove",
+            "keyValue": "vending-2f",
+            "descriptions": [
+                {
+                    "label": "Main", 
+                    "text": "The vending alcove is in stark contrast to the rest of your well worn surroundings. The vending machine is shiny and new and stocked to the brim with Fast Eddie's colon cleanse, as well as some other interesting items. A marquee taunts you in large bold letters \"Fast Eddie's: When in doubt, flush it out!\""
+                }
+            ]          
+        },
+        {
+            "type": "Room",
+            "name": "East Hallway",
+            "keyValue": "eastHallway-2f",
+            "descriptions": [
+                {
+                    "label": "Main", 
+                    "text": "You rush into the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls. But unless you can use them to wipe your ass right now, you don't care!"
+                },
+                {
+                    "label": "HasPooped", 
+                    "text": "You're in the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls."
+                }
+            ]          
         }
     ],
     "exits": [
