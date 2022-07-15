@@ -12,12 +12,12 @@ The Command Parser:
 ------------------
 
 
-<p>A <b>Lexer</b> is a software program that performs lexical analysis.  Lexical analysis is the process of separating a stream 
+<p>A <b>Parser</b> is a software program that performs lexical analysis.  Lexical analysis is the process of separating a stream 
 of characters into different words, which in computer science we call 'tokens' . When you read my answer you are 
 performing the lexical operation of breaking the string of text at the space characters into multiple words.
 </p>
 
-<p>A <b>Lexer</b> is part of a compiler that converts the statements in code into various categories of like key words,constants,
+<p>A <b>Parser</b> is part of a compiler that converts the statements in code into various categories of like key words,constants,
 variable etc jus like identifying parts of speech in a sentence and produce token (each converted unit is called as a token )
 </p>
 

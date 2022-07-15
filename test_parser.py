@@ -1,9 +1,9 @@
 import unittest
-from lexer import *
+from command_parser import *
 from game_object import GameObject
 
 
-class LexerTest(unittest.TestCase):
+class ParserTest(unittest.TestCase):
 
     def setUp(self) -> None:
         self.commands = [
@@ -43,7 +43,7 @@ class LexerTest(unittest.TestCase):
             "walk"
         ]
 
-        self.lexer = Lexer(self.commands)
+        self.parser = Parser(self.commands)
 
         GameObject("Chicken Soup", {"Main":"For the soul"})
         GameObject("Hotel Clerk", {"Main":"Asshole"})
@@ -52,7 +52,7 @@ class LexerTest(unittest.TestCase):
         GameObject("kitchen", {"Main":"you cook food here"})
 
     def test_invalid_direction(self):
-        parsed_command = self.lexer.tokenize("Go Forth", GameObject.objects_by_key)
+        parsed_command = self.parser.tokenize("Go Forth", GameObject.objects_by_key)
         print(vars(parsed_command))
         self.assertEqual(parsed_command.response, "FORTH is not a valid direction.")
 

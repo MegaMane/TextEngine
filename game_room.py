@@ -1,30 +1,38 @@
 from game_object import GameObject
-from story_item import StoryItem
-from lexer import ParseTree
+from game_enums import Flag
+import textwrap
+
 import json
 
-
 class Room(GameObject):
-    def __init__(self, name: str, descriptions: dict, key_value: str = None):
+    room_count = 0
+    rooms = {}
+
+    def __init__(self, key_value: str, name: str, descriptions: dict, flags=[], commands={}):
         self.times_visited = 0
         self.items = []
         self.npcs = []
         self.exits = {}
-        super().__init__(name, descriptions, key_value)
+        super().__init__(key_value, name, descriptions, location_key="rooms", flags=flags,
+                         commands=commands)
+        Room.rooms[self.key_value] = self
+        Room.room_count += 1
 
-
-    def look(self, tokens: ParseTree) -> str:
+    def describe(self)-> str:
         response = ""
-        response += f"You are in the {self.name}: {self.current_description}\n\n"
-        response += "---Exits---\n\n"
+        response += f"You are in the {self.name}: {self.current_description}"
+        output = textwrap.wrap(response,100)
+        response = '\n'.join(output)
+        response += "\n\n---Exits---\n\n"
         response += self.get_exits()
         return response
 
-    def get_exits(self) ->str:
+
+    def get_exits(self) -> str:
         response = ''
         for exit in self.exits.keys():
-            exit_description = self.exits[exit].connections[self.key_value]["description"]
-            response += (f"To the {exit.name} is the {exit_description}")
+            exit_description = self.exits[exit].current_description
+            response += (f"To the {exit.name} is the {exit_description}\n")
         response += "\n\n"
         return response
 
@@ -33,6 +41,23 @@ class Room(GameObject):
 
     def get_npcs(self):
         pass
+
+class Exit(GameObject):
+    def __init__(self, key_value: str, name: str, descriptions: dict, location_key, connection,
+                 key_object = None, flags=[], commands={}):
+        self.connection = connection
+        self.key_object = key_object
+        super().__init__(key_value, name, descriptions, location_key=location_key, flags=flags,
+                         commands=commands)
+        if self.key_object and Flag.LOCKEDBIT not in self.flags:
+            self.add_flag(Flag.LOCKEDBIT)
+
+
+
+
+
+
+#TODO update JSON "loader" classes
 
 class RoomLoader:
     def __init__(self, json_file_path):
@@ -51,15 +76,11 @@ class RoomLoader:
             for description in room["descriptions"]:
                 descriptions[description["label"]] = description["text"]
             room_list.append(Room(room["name"], descriptions, room["keyValue"]))
-        return  room_list
+        return room_list
 
 
 
 
-class Exit(GameObject):
-    def __init__(self, name: str, descriptions: dict, connections: dict, key_value: str = None):
-        self.connections = connections
-        super().__init__(name, descriptions, key_value)
 
 class ExitLoader:
     def __init__(self, json_file_path):
@@ -82,7 +103,3 @@ class ExitLoader:
                 connections[connection["location"]] = connection
         exit_list.append(Exit(exit["name"], descriptions, connections, exit["keyValue"]))
         return exit_list
-
-
-
-

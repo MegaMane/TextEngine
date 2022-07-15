@@ -1,6 +1,6 @@
 import unittest
-from lexer import *
-import room
+from command_parser import *
+import game_room
 from game_enums import Direction
 
 

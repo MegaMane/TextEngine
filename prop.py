@@ -1,6 +1,6 @@
 from story_item import StoryItem
 from game_object import GameObject
-from lexer import ParseTree
+from command_parser import ParseTree
 
 
 class Prop(StoryItem):

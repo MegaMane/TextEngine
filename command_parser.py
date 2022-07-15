@@ -1,8 +1,35 @@
 import re
 from game_enums import Direction
+from globals import SINGLE_WORD_COMMANDS
 
 
-class Lexer:
+class Parser:
+    """A class responsible for attempting to parse player input into a known verb and optionally direct object & indirect object
+
+     The parser splits player input on spaces or certain punctuation into words it then attempts to search the grammar
+     for a known verb, remove articles and prepositions and then search the list of game objects for a direct and indirect
+     object in the form:
+
+     VERB_PHRASE DIRECT_OBJECT_PHRASE? INDIRECT_OBJECT_PHRASE?
+
+    Attributes
+    ----------
+    known_commands: list
+        the list of known verbs passed in to the parser at initialization
+    prepositions: list
+        hard coded list of prepositions to be used in identifying indirect objects
+        Example: Get the lamp on the table
+        ('the' is an article, 'on' is a preposition. Once the articles are removed,
+        the indirect object appears directly after the preposition)
+
+
+     Methods
+     ---------
+
+     tokenize(self, user_input: str, game_objects: dict):
+        attempt to parse the player input and return a ParseTree object that contains the resulting parsed tokens
+        or at the very least a ParseTree object that contains a response explaining why the input could not be parsed
+    """
     def __init__(self, known_verbs: list):
         self.known_commands = known_verbs
         self.prepositions = ["in", "on"]
@@ -45,6 +72,11 @@ class Lexer:
         if tokens.direct_object_key is None and tokens.verb in ["go", "move", "walk"]:
             self.check_direction(remaining_input, tokens)
 
+        elif tokens.direct_object_key is None and tokens.verb in SINGLE_WORD_COMMANDS:
+            tokens.input_parsed = True
+            tokens.respons = f"Single word command: {tokens.verb}"
+            return tokens
+
         else:
             obj = ' '.join(remaining_input)
             article = 'an' if obj[0] in ['a','e','i','o','u'] else 'a'
@@ -83,6 +115,9 @@ class Lexer:
             preposition_index = remaining_input.index(preps[0])
             secondary_objects = remaining_input[preposition_index + 1:]
             direct_objects = remaining_input[0:preposition_index]
+            if not direct_objects:
+                direct_objects = secondary_objects
+                secondary_objects = []
             # print(secondary_objects)
             # print(direct_objects)
 
@@ -120,6 +155,7 @@ class Lexer:
         if (parse_tree.verb is not None
                 and parse_tree.direct_object_key is not None):
             parse_tree.input_parsed = True
+            parse_tree.response = "Input Parsed"
 
         else:
             parse_tree.input_parsed = False
@@ -138,6 +174,8 @@ class ParseTree:
 
 
 if __name__ == "__main__":
+    import inspect
+
     from game_object import GameObject
 
     commands = [
@@ -177,29 +215,11 @@ if __name__ == "__main__":
         "walk"
     ]
 
-    soup = GameObject("Chicken Soup", "For the soul")
-    clerk = GameObject("Hotel Clerk", "Asshole")
-    table = GameObject("table", "It's got four legs!")
-    light = GameObject("light", "It turns on and off")
-    kitchen = GameObject("kitchen", "you cook food here")
 
-    examples = [
-        "Go North",
-        "Go To the Kitchen"
-        "Hide under the Bed",
-        "turn on the light in the kitchen!",
-        "drink the chicken soup on the table.",
-        "talk to the hotel clerk",
-        "Pick up the green apple",
-        "put the pocket change in the vending machine",
-        "open the drawer and put the pocket change inside",
-        "put the pocket change in the drawer"
-        "use the phone",
-        "talk to Fred",
-        "Attack the Cobra with the sword"
-    ]
 
-    lexer = Lexer(commands)
+
+    lexer = Parser(commands)
+    print(inspect.getsource(lexer.check_direction))
 
     # parsed_command = lexer.tokenize("turn on the light in the kitchen!", GameObject.objects_by_key)
     # parsed_command = lexer.tokenize("drink the chicken soup on the table.", GameObject.objects_by_key)

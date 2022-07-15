@@ -1,6 +1,6 @@
 import unittest
 import prop
-from lexer import ParseTree
+from command_parser import ParseTree
 from game_enums import Direction
 
 
