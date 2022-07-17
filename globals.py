@@ -1,7 +1,7 @@
 HAS_POOPED = False
 
-TILEWIDTH = 16
-TILEHEIGHT = 16
+TILEWIDTH = 56
+TILEHEIGHT = 28
 NROWS = 36
 NCOLS = 28
 SCREENWIDTH = NCOLS*TILEWIDTH
@@ -12,8 +12,12 @@ BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 128)
 
 SINGLE_WORD_COMMANDS = ["look", "inventory", "help", "save", "quit"]
+
+START_ROOM = "room201"
 
 KNOWN_VERBS = [
             "backpack",

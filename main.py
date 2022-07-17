@@ -1,5 +1,7 @@
 from game_enums import GameState
 from game_controller import Controller
+from globals import START_ROOM
+from game_ui import *
 
 
 # This is a sample Python script.
@@ -12,18 +14,26 @@ def game_init():
     controller = Controller()
     return controller
 
-def go():
-    print("This is the intro")
+def go(controller):
+    result = ''
+    result += "-" * 100 + "\n\n"
+    result += "Texticular: Chapter 1 - You Gotta Go!\n\n"
+    result += "-" * 100 + "\n\n"
+    result += controller.player.go_to(START_ROOM)
+    return result
+
+
+
 
 
 def main_loop():
-    go()
     controller = game_init()
-    while True:
-        controller.render()
-        controller.update()
-        if controller.gamestate == GameState.GAMEOVER:
-            break
+    ui = UI(controller)
+    ui.dialogue.set(go(controller))
+    if controller.gamestate == GameState.GAMEOVER:
+        pass
+    ui.root.mainloop()
+
 
 
 # Press the green button in the gutter to run the script.

@@ -18,8 +18,8 @@ class Controller:
         self.gamestate = GameState.EXPLORATION
         self.rooms = Room.rooms
         self.game_objects = GameObject.objects_by_key
+        self.player = GameObject.objects_by_key["player"]
         self.commands = {}
-
         self.set_commands()
 
 
@@ -27,9 +27,9 @@ class Controller:
         self.response = ''
         self.get_input()
 
-    def update(self):
+    def update(self)->str:
         self.parse(self.user_input)
-        print(self.response)
+        return(self.response)
 
     def get_input(self):
         self.user_input = input(">>")
@@ -58,6 +58,11 @@ class Controller:
         verb = tokens.verb
         direct_object= tokens.direct_object_key
         indirect_object = tokens.indirect_object
+
+        if isinstance(tokens.direct_object_key, Direction):
+            print("is instance of direction")
+            return self.commands[verb](tokens)
+
 
         #Try letting the indirect object handle the input first
         if indirect_object:
@@ -97,9 +102,19 @@ class Controller:
         player_location = self.game_objects[player.location_key]
         self.response = player_location.describe()
 
+    def walk(self, tokens: ParseTree):
+        print("walk called")
+        self.response = self.player.do_walk(Direction[tokens.direct_object.upper()])
+
+
+
     def set_commands(self):
         self.commands["eat"]  = self.eat
         self.commands["look"] = self.look
+        self.commands["go"] = self.walk
+        self.commands["move"] = self.walk
+        self.commands["walk"] = self.walk
+        self.commands["run"] = self.walk
 
 
 

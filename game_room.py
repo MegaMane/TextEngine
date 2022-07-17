@@ -21,8 +21,8 @@ class Room(GameObject):
     def describe(self)-> str:
         response = ""
         response += f"You are in the {self.name}: {self.current_description}"
-        output = textwrap.wrap(response,100)
-        response = '\n'.join(output)
+        #output = textwrap.wrap(response,100)
+        #response = '\n'.join(output)
         response += "\n\n---Exits---\n\n"
         response += self.get_exits()
         return response
