@@ -203,8 +203,7 @@ Looks like you have to find somewhere else to go if you value your junk...and yo
  
 
 Exits
-There is a door to the west that leads to that sweet, sweet porcelain throne.
-The door that leads to the hallway is to the east. 
+The door to room 201 is to the east
 
  
 
@@ -224,23 +223,23 @@ You eagerly enter the hallway leaving your room behind you to the West. The glow
 are complimented by the well-worn red carpet. The diamond pattern urges you forward. 
 
 
-To the North you see room 202 
-To the North East Room 203
+
+To the North  Room 203
 To the East the diamond pattern stretches into more hallway
 To the South there is a small alcove with a vending machine
+To the West the door to Room 201 (Your Room)
+To the North West you see room 202 
 
  
 
 Exits
 
-Door (North) => Room 202 (locked)
 
-Door (North East) Room 203 (locked)
-
+Door (North) Room 203 (locked)
 Walkway (East) => East Hallway
-
 Walkway (South) => Vending Machine
-
+To the West the door to Room 201 (Your Room)
+Door (North west) => Room 202 (locked)
  
 
 ### Vending Machine Alcove
@@ -274,26 +273,16 @@ You rush into the east hallway. It looks a hell of a lot like the west hallway. 
 But unless you can use them to wipe your ass right now, you don't care!
 
  
-
+To the North is Room 204 (Paranoid Guy Hiding OUt)
+To the NorthEast there is a door marked Fire Exit that leads to some dimly lit stairs. 
 To the East there is a door marked Supply Closet. 
-
 To the South there is an Elevator that hopefully leads somewhere with a toilet.  
-
-To the Northwest there is a door marked Fire Exit that leads to some dimly lit stairs. 
-
 Back to the West is the stretch of hallway you just came from.
 
  
 
 Exits
 
-Door (East) => Supply Closet (locked)
-
-Door (South) => Elevator
-
-Door (Northwest) => Stairs
-
-Walkway(West) => West Hallway
 
  
 

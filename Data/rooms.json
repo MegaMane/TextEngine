@@ -1,201 +1,473 @@
 {
-    "roomCount": 1,
-    "rooms": [
-        {
-            "type": "Room",
-            "name": "Room 201",
-            "keyValue": "room201",
-            "descriptions": [
-                {
-                    "label": "Main", 
-                    "text": "As you look around the hotel room you see an old TV with rabbit ears that looks like it came straight out of the 1950's. Against the wall there is a beat up night stand with a little drawer built into it and an old phone on top. Next to it is a lumpy old bed that looks like it's seen better days, with a dark brown stain on the sheets and a funny smell coming from it. There is an obnoxious orange couch in the corner next to a small window smudged with sticky purple hand prints. The stuffing is coming out of the cushions which are also spotted with purple, and the floor is covered with cans of Fast Eddie's Colon Cleanse. The door that leads to the hallway is to the east. There is a door to the west that leads to that sweet sweet porcelain throne."
-                }
-            ],
-            "storyItems": [
-                {
-                    "type": "Prop",
-                    "name": "Night Stand",
-                    "keyValue": "nightStand-room201",
-                    "descriptions":[
-                        {
-                            "label": "Main", 
-                            "text": "An old beat up night stand with a little drawer built into it."
-                        }
-                    ] ,
-                    "location": "room201",
-                    "portable": false,
-                    "weight": 999,
-                    "container": {
-                        "type": "Container",
-                        "name": "Drawer",
-                        "keyValue": "nightStandDrawer-room201",
-                        "descriptions":[
-                            {
-                                "label": "Main", 
-                                "text": "small wooden drawer."
-                            }
-                        ] ,
-                        "location": "nightStand-room201",
-                        "portable": false,
-                        "weight": 999,
-                        "slots": 10,
-                        "items": [
-                            {
-                                "type": "Currency",
-                                "name": "Coins",
-                                "keyValue": "coins-nightStandDrawer-room201",
-                                "descriptions":[
-                                    {
-                                        "label": "Main", 
-                                        "text": "Wow a whole 30 cents!"
-                                    }
-                                ] ,
-                                "location": "nightStandDrawer-room201",
-                                "portable": true,
-                                "weight": 0,
-                                "slotsOccupied": 1,
-                                "value": 0.3   
-                            }
-                        ]
+   "rooms": [
+    {
+        "type": "Room",
+        "name": "Room 201",
+        "keyValue": "room201",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "As you look around the hotel room you see an old TV with rabbit ears that looks like it came straight out of the 1950's. Against the wall there is a beat up night stand with a little drawer built into it and an old phone on top. Next to it is a lumpy old bed that looks like it's seen better days, with a dark brown stain on the sheets and a funny smell coming from it. There is an obnoxious orange couch in the corner next to a small window smudged with sticky purple hand prints. The stuffing is coming out of the cushions which are also spotted with purple, and the floor is covered with cans of Fast Eddie's Colon Cleanse."
+            }
+        ],
+        "flags":["CONTAINERBIT","ONBIT"],
+        "exits": {
+            "WEST": {
+                "keyValue":"exits-room201-bathroom",
+                "name":"Bathroom Door",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The door to that sweet sweet porecelain throne"
+                    },
+                    {
+                        "label": "GreatDane", 
+                        "text": "The door to a fucked up killer version of Scooby-Doo (and He's hungry)"
                     }
-                },
-                {
-                    "type": "Phone",
-                    "name": "Old Phone",
-                    "location": "room201"
-                   
-                },
-                {
-                    "name": "Bed" 
-                 },  
-                 {
-                    "type": "Television",
-                    "name": "Old TV",
-                    "keyValue": "oldtv-room201",
-                    "descriptions":[
-                        {
-                            "label": "Main", 
-                            "text": "An old TV with rabbit ears that looks like it came straight out of the 1970's."
-                        }
-                    ] ,
-                    "location": "room201",
-                    "channels":[
-                        "Whenever I feel like a sweaty slob, there is one assurance that gives me peace of mind. Deodorant. Just one wipe under each arm pit and I am good to go for days. Heck, I don't even need to shower for one whole week.That's how good this shit is.",
-                        "Ever sit on a toilet and have the never ending wipe?  Well, those days are over. I've invented one wipes.  A new form of toilet paper that contains a solution where with just one wipe, you are fresh and clean. Done deal.",
-                        "Well, I'm your Vita-vega-vittival girl. Are you tired? Run-down? Listless? Do you poop out at parties? Are you unpoopular? Well, are you? The answer to all your problems is in this little ol' bottle…Vitameatavegemin. That's it. Vitameatavegemin contains vitamins, meat, meg-e-tables, and vinerals. So why don't you join the thousands of happy , peppy people and get a great big bottle of Vita-veaty-vega-meany-minie-moe-amin. I'll tell you what you have to do. You have to take a whole tablesppon after every meal. It's so tasty, too: it's just like candy. So everybody get a bottle of…this stuff.",
-                        "Static..."
-                    ],
-                    "turnOnResponse": "You turn on the TV...",
-                    "turnOffResponse": "The TV flickers then goes black"
-                 },
-                 {
-                    "name": "Orange Couch"
-                 },
-                 {
-                    "name": "Window"
-                 },
-                 {
-                    "name": "Hand Prints"
-                 },
-                 {
-                    "name": "Cans",
-                    "type": "StoryItem"
-                 }                             
-            ],
-            "exits":{
-                "north": null,
-                "northEast": null,
-                "east": null,
-                "southEast": null,
-                "south": null,
-                "southWest": null,
-                "west": null,
-                "northWest": null
+                ],
+                "locationKey":"room201",
+                "connection":"bathroom-room201",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+
             },
-            "npcs":[]
-        },
-        {
-            "type": "Room",
-            "name": "Room 201 - Bathroom",
-            "keyValue": "bathroom-room201",
-            "descriptions": [
-                {
-                    "label": "Main", 
-                    "text": "You crack open the door to the bathroom and it looks like it's seen better days. From the smell of it, it looks like someone beat you to it and narrowly escaped a hard fought battle with an eight pound burrito. The sink is old,yellowed and caked with brown muck in the corners. The mirror is cracked and something is written on it in red. You can't quite make it out. But you don't care...you've gotta take a shit! You rush to be the first in line to make a deposit in the porcelain bank. But just as you are about to drop it like it's hot you notice there is an angry Great Dane guarding the toilet and he looks hungry! You quickly shut the door and somehow manage to not lose your shit (literally). Looks like you have to find somewhere else to go if you value your junk...and your life."
-                }
-            ]          
-        },
-        {
-            "type": "Room",
-            "name": "West Hallway",
-            "keyValue": "westHallway-2f",
-            "descriptions": [
-                {
-                    "label": "Main", 
-                    "text": "You eagerly enter the West hallway. Your room is behind you to the West and more hallway stretches to the East. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
-                },
-                {
-                    "label": "HasPooped", 
-                    "text": "You eagerly enter the hallway leaving your room behind you to the West. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward. To the North you see room 202 to the North East Room 203. To the east the diamond pattern stretches into more hallway. To the South There is a small alcove with a vending machine."
-                }
-            ]          
-        },
-        {
-            "type": "Room",
-            "name": "Vending Alcove",
-            "keyValue": "vending-2f",
-            "descriptions": [
-                {
-                    "label": "Main", 
-                    "text": "The vending alcove is in stark contrast to the rest of your well worn surroundings. The vending machine is shiny and new and stocked to the brim with Fast Eddie's colon cleanse, as well as some other interesting items. A marquee taunts you in large bold letters \"Fast Eddie's: When in doubt, flush it out!\""
-                }
-            ]          
-        },
-        {
-            "type": "Room",
-            "name": "East Hallway",
-            "keyValue": "eastHallway-2f",
-            "descriptions": [
-                {
-                    "label": "Main", 
-                    "text": "You rush into the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls. But unless you can use them to wipe your ass right now, you don't care!"
-                },
-                {
-                    "label": "HasPooped", 
-                    "text": "You're in the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls."
-                }
-            ]          
-        }
-    ],
-    "exits": [
-        {
-            "name": "Bathroom Door",
-            "keyValue": "bathroomDoor-room201",
-            "descriptions":[
-                {
-                    "label": "Main", 
-                    "text": "The Bathroom Door"
-                }
-            ] ,
-            "connections": [
-                {
-                    "location": "bathroom-room201",
-                    "direction": "East",
-                    "connection": "room201",
-                    "description": "Bathroom Door (Bathroom Side)",
-                    "isLocked": false,
-                    "keyObjectKeyValue": null
-                },
-                {
-                    "location": "room201",
-                    "direction": "West",
-                    "connection": "bathroom-room201",
-                    "description": "Bathroom Door (Room Side)",
-                    "isLocked": false,
-                    "keyObjectKeyValue": null
-                }
-            ]
+            "EAST": {
+                "keyValue":"exits-room201-hallway",
+                "name":"Hallway Door",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The Door leads outside to the hallway...where hopefully there are toilets."
+                    }
+                ],
+                "locationKey":"room201",
+                "connection":"westHallway",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+
+            }
 
         }
-    ]
+    },
+    {
+        "type": "Room",
+        "name": "Room 201 - Bathroom",
+        "keyValue": "bathroom-room201",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "You crack open the door to the bathroom and it looks like it's seen better days. From the smell of it, it looks like someone beat you to it and narrowly escaped a hard fought battle with an eight pound burrito. The sink is old,yellowed and caked with brown muck in the corners. The mirror is cracked and something is written on it in red. You can't quite make it out. But you don't care...you've gotta take a shit! You rush to be the first in line to make a deposit in the porcelain bank. But just as you are about to drop it like it's hot you notice there is an angry Great Dane guarding the toilet and he looks hungry! You quickly shut the door and somehow manage to not lose your shit (literally). Looks like you have to find somewhere else to go if you value your junk...and your life."
+            }
+        ],
+        "flags":["CONTAINERBIT","ONBIT"],
+        "exits": {
+            "EAST": {
+                "keyValue":"exits-bathroom-room201",
+                "name":"Door to the bedroom",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The Bedroom. Hurry get the fuck out of here before that crazy dog rips out your throat!"
+                    },
+                    {
+                        "label": "SleepyTime", 
+                        "text": "The Bedroom. The great Dane Sleeps peacefully behind you. Not weird at all."
+                    }
+                ],
+                "locationKey":"bathroom-room201",
+                "connection":"room201",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+
+            }
+
+        }        
+    },
+    {
+        "type": "Room",
+        "name": "West Hallway",
+        "keyValue": "westHallway-2f",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "You eagerly enter the West hallway. Your room is behind you to the West and more hallway stretches to the East. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
+            },
+            {
+                "label": "HasPooped", 
+                "text": "You're in the West hallway. Your room is behind you to the West and more hallway stretches to the East. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {
+            "NORTH":{
+                "keyValue":"exits-westHallway-room203",
+                "name": "Door to Room 203",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The door to room 203. From the sounds of it someone's parents were really overdue for some alone time. The headboard is rattling against the wall and shit sounds like it's breaking. All seems consensual though...if a little embarassing."
+                    }
+                ],
+                "locationKey":"westHallway-2f",
+                "connection":"room203",
+                "keyObject": "key-room203",
+                "flags":["DOORBIT","LOCKEDBIT"]
+            },
+            "EAST":{
+                "keyValue":"exits-westHallway-eastHallway",
+                "name": "East Hallway",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "To the East the diamond pattern stretches into more hallway"
+                    }
+                ],
+                "locationKey":"westHallway-2f",
+                "connection":"eastHallway-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            },
+            "SOUTH":{
+                "keyValue":"exits-westHallway-vending",
+                "name": "Vending Machine Alcove",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "There is a small alcove with a vending machine." 
+                    }
+                ],
+                "locationKey":"westHallway-2f",
+                "connection":"vending-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            },
+            "WEST":{
+                "keyValue":"exits-westHallway-room201",
+                "name": "Door to Room 201",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The door to Room 201 (Your Room)" 
+                    }
+                ],
+                "locationKey":"westHallway-2f",
+                "connection":"room201",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            },
+            "NORTHWEST":{
+                "keyValue":"exits-westHallway-room202",
+                "name": "Door to Room 202",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The Door to room 202. All is quiet, except of course for the incessant grunting and pounding going on next door in room 203. God I hope nobody is trying to sleep in there..." 
+                    }
+                ],
+                "locationKey":"westHallway-2f",
+                "connection":"room202",
+                "keyObject": "key-room202",
+                "flags":["DOORBIT","LOCKEDBIT"]
+            }
+
+        }          
+    },
+    {
+        "type": "Room",
+        "name": "Vending Alcove",
+        "keyValue": "vending-2f",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "The vending alcove is in stark contrast to the rest of your well worn surroundings. The vending machine is shiny and new and stocked to the brim with Fast Eddie's colon cleanse, as well as some other interesting items. A marquee taunts you in large bold letters \"Fast Eddie's: When in doubt, flush it out!\""
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {
+            "NORTH":{
+                "keyValue":"vending-2f-westHallway",
+                "name": "West Hallway",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "To the North the fluorescent lights hum in the West Hallway." 
+                    }
+                ],
+                "locationKey":"vending-2f",
+                "connection":"westHallway-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+
+            }
+        }          
+    },
+    {
+        "type": "Room",
+        "name": "East Hallway",
+        "keyValue": "eastHallway-2f",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "You rush into the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls. But unless you can use them to wipe your ass right now, you don't care!"
+            },
+            {
+                "label": "HasPooped", 
+                "text": "You're in the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls."
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {
+            "NORTH":{
+                "keyValue":"exits-eastHallway-room204",
+                "name": "Door to Room 204",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The Door to Room 204. What lies beyond is a mystery (and probaly none of your business). But hey, nobody is stopping you from knocking. Except for maybe that growler a brewin', with that one way ticket to your pantaloons if you don't hurry the fuck up!" 
+                    }
+                ],
+                "locationKey":"eastHallway-2f",
+                "connection":"room204",
+                "keyObject": "key-room204",
+                "flags":["DOORBIT","LOCKEDBIT"]
+
+            },
+            "NORTHEAST":{
+                "keyValue":"exits-eastHallway-stairs",
+                "name": "Stairs",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "There is a door marked Fire Exit that leads to some dimly lit stairs"
+                    }
+                ],
+                "locationKey":"eastHallway-2f",
+                "connection":"eastHallway2f-stairs",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            },
+            "EAST":{
+                "keyValue":"exits-eastHallway-supplyCloset",
+                "name": "Supply Closet",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "There is a door marked Supply Closet."
+                    }
+                ],
+                "locationKey":"eastHallway-2f",
+                "connection":"eastHallway2f-supplyCloset",
+                "keyObject": "key-supplyCloset",
+                "flags":["DOORBIT","LOCKEDBIT"]
+            },
+            "SOUTH":{
+                "keyValue":"exits-eastHallway-elevator-2f",
+                "name": "The Elevator",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "An Elevator that hopefully leads somewhere with a (less lethal) toilet"
+                    }
+                ],
+                "locationKey":"eastHallway-2f",
+                "connection":"elevator-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            },
+            "WEST":{
+                "keyValue":"exits-eastHallway-westHallway",
+                "name": "West Hallway",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "The awfully familiar West Hallway."
+                    }
+                ],
+                "locationKey":"eastHallway-2f",
+                "connection":"westHallway-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            }
+
+        }            
+    },
+    {
+        "type": "Room",
+        "name": "Elevator",
+        "keyValue": "elevator-2f",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "You rush into the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls. But unless you can use them to wipe your ass right now, you don't care!"
+            },
+            {
+                "label": "HasPooped", 
+                "text": "You're in the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls."
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {
+            "NORTH":{
+                "keyValue":"exits-elevator-2f-eastHallway",
+                "name": "East Hallway",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "Back from whence you came lies the East Hallway."
+                    }
+                ],
+                "locationKey":"elevator-2f",
+                "connection":"eastHallway-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+
+            }
+        }                   
+    },
+    {
+        "type": "Room",
+        "name": "Room 202",
+        "keyValue": "room202",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description Room 202"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Room 203",
+        "keyValue": "room203",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description Room 203"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Room 204",
+        "keyValue": "room204",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description Room 204"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Stairs",
+        "keyValue": "stairs-2f",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description Room Stairs (Fire Exit 2f)"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Supply Closet",
+        "keyValue": "supplyCloset",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Supply Closet"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Hotel Lobby",
+        "keyValue": "hotelLobby",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Hotel Lobby"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Bathroom Foyer",
+        "keyValue": "lobby-bathroomFoyer",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Hotel Lobby Bathroom Foyer"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Men's Bathroom",
+        "keyValue": "lobby-mensBathroom",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Hotel Lobby Men's bathroom"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Stall 2",
+        "keyValue": "lobby-mensBathroom-stall2",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Hotel Lobby Men's Bathroom - Stall 2"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    }
+    {
+        "type": "Room",
+        "name": "Women's Bathroom",
+        "keyValue": "lobby-womensBathroom",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Hotel Lobby Women's Bathroom"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    },
+    {
+        "type": "Room",
+        "name": "Stall 1",
+        "keyValue": "lobby-womensBathroom-stall1",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Description for Hotel Lobby Women's Bathroom - Stall 1"
+            }
+        ],
+        "flags":["CONTAINERBIT"],
+        "exits": {}                   
+    }
+    
+
+   ]
 }

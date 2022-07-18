@@ -37,9 +37,7 @@ room_201.exits = {
                   }
 
 
-couch_201 = StoryItem(key_value="room201-couch", name="Couch",
-                      descriptions={"Main": "There is an obnoxious orange couch in the corner"}, location_key="room201",
-                      synonyms=["Sofa","Chair"],slots_occupied=999, adjectives=["Orange", "Obnoxious"])
+
 
 
 
@@ -63,5 +61,9 @@ room_201_bathroom = gr.Room(key_value="bathroom-room201",
                             name="Room 201 - Bathroom",
                             descriptions=room_201_bathroom_descriptions,
                             flags=[Flag.CONTAINERBIT])
+
+couch_201 = StoryItem(key_value="room201-couch", name="Couch",
+                      descriptions={"Main": "There is an obnoxious orange couch in the corner"}, location_key="room201",
+                      synonyms=["Sofa","Chair"],slots_occupied=999, adjectives=["Orange", "Obnoxious"])
 
 
