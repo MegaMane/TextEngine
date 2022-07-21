@@ -1,12 +1,13 @@
-HAS_POOPED = False
+import json
 
-TILEWIDTH = 56
-TILEHEIGHT = 28
-NROWS = 36
-NCOLS = 28
-SCREENWIDTH = NCOLS*TILEWIDTH
-SCREENHEIGHT = NROWS*TILEHEIGHT
-SCREENSIZE = (SCREENWIDTH, SCREENHEIGHT)
+def load_json(json_file_path):
+    with open(json_file_path) as json_file:
+        config = json.load(json_file)
+    return config
+
+CONFIG = load_json("./Data/rooms.json")
+
+HAS_POOPED = False
 
 BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
@@ -29,6 +30,8 @@ KNOWN_VERBS = [
             "examine",
             "feel",
             "get",
+            "get up",
+            "get off",
             "go",
             "grab",
             "help",
@@ -46,6 +49,7 @@ KNOWN_VERBS = [
             "run",
             "shut",
             "sit",
+            "stand",
             "take",
             "talk to",
             "talk with",
@@ -56,3 +60,5 @@ KNOWN_VERBS = [
             "turn on",
             "walk"
         ]
+
+PLAYERSITTING = False

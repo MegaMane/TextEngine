@@ -1,4 +1,5 @@
 import tkinter as tk
+import time
 
 
 class UI:
@@ -73,6 +74,7 @@ class UI:
         self.player_input.delete(0, len(self.player_input.get()))
         self.player_input.insert(0, self.input_prompt)
 
+
     def dialogue_history_back(self, key):
         self.history_index -= 1
         self.player_input.delete(0, len(self.player_input.get()))
@@ -92,6 +94,9 @@ class UI:
         except IndexError:
             self.history_index = 0
             self.dialogue.set(self.turn_history[self.history_index])
+
+    def close_window(self):
+        self.root.destroy()
 
 
 

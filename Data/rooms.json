@@ -18,11 +18,11 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The door to that sweet sweet porecelain throne"
+                        "text": "is the DOOR to that sweet sweet porecelain throne."
                     },
                     {
                         "label": "GreatDane", 
-                        "text": "The door to a fucked up killer version of Scooby-Doo (and He's hungry)"
+                        "text": "is the DOOR to a fucked up killer version of Scooby-Doo (and He's hungry)!"
                     }
                 ],
                 "locationKey":"room201",
@@ -37,11 +37,11 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The Door leads outside to the hallway...where hopefully there are toilets."
+                        "text": "the DOOR leads outside to the hallway...where hopefully there are toilets."
                     }
                 ],
                 "locationKey":"room201",
-                "connection":"westHallway",
+                "connection":"westHallway-2f",
                 "keyObject": null,
                 "flags":["DOORBIT","OPENBIT"]
 
@@ -67,11 +67,11 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The Bedroom. Hurry get the fuck out of here before that crazy dog rips out your throat!"
+                        "text": "is the DOOR to the Bedroom. Hurry get the fuck out of here before that crazy dog rips out your throat!"
                     },
                     {
                         "label": "SleepyTime", 
-                        "text": "The Bedroom. The great Dane Sleeps peacefully behind you. Not weird at all."
+                        "text": "is the DOOR to the Bedroom. The great Dane Sleeps peacefully behind you. Not weird at all."
                     }
                 ],
                 "locationKey":"bathroom-room201",
@@ -90,11 +90,11 @@
         "descriptions": [
             {
                 "label": "Main", 
-                "text": "You eagerly enter the West hallway. Your room is behind you to the West and more hallway stretches to the East. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
+                "text": "You eagerly enter the hallway. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
             },
             {
                 "label": "HasPooped", 
-                "text": "You're in the West hallway. Your room is behind you to the West and more hallway stretches to the East. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
+                "text": "You're in the hallway. The glow of the yellow fluorescent lights are complimented by the well-worn red carpet. The diamond pattern urges you forward."
             }
         ],
         "flags":["CONTAINERBIT"],
@@ -105,7 +105,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The door to room 203. From the sounds of it someone's parents were really overdue for some alone time. The headboard is rattling against the wall and shit sounds like it's breaking. All seems consensual though...if a little embarassing."
+                        "text": "is the DOOR to room 203. From the sounds of it someone's parents were really overdue for some alone time. The headboard is rattling against the wall and shit sounds like it's breaking. All seems consensual though...if a little embarassing."
                     }
                 ],
                 "locationKey":"westHallway-2f",
@@ -119,7 +119,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "To the East the diamond pattern stretches into more hallway"
+                        "text": "the diamond pattern stretches into more hallway (the EAST HALLWAY)."
                     }
                 ],
                 "locationKey":"westHallway-2f",
@@ -133,7 +133,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "There is a small alcove with a vending machine." 
+                        "text": "there is a small ALCOVE with a VENDING MACHINE." 
                     }
                 ],
                 "locationKey":"westHallway-2f",
@@ -147,7 +147,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The door to Room 201 (Your Room)" 
+                        "text": "the DOOR to Room 201 (Your Room)" 
                     }
                 ],
                 "locationKey":"westHallway-2f",
@@ -161,7 +161,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The Door to room 202. All is quiet, except of course for the incessant grunting and pounding going on next door in room 203. God I hope nobody is trying to sleep in there..." 
+                        "text": "the DOOR to room 202. All is quiet, except of course for the incessant grunting and pounding going on next door in room 203. God I hope nobody is trying to sleep in there..." 
                     }
                 ],
                 "locationKey":"westHallway-2f",
@@ -190,7 +190,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "To the North the fluorescent lights hum in the West Hallway." 
+                        "text": "To the North the fluorescent lights hum in the WEST HALLWAY." 
                     }
                 ],
                 "locationKey":"vending-2f",
@@ -223,7 +223,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The Door to Room 204. What lies beyond is a mystery (and probaly none of your business). But hey, nobody is stopping you from knocking. Except for maybe that growler a brewin', with that one way ticket to your pantaloons if you don't hurry the fuck up!" 
+                        "text": "the DOOR to Room 204. What lies beyond is a mystery (and probaly none of your business). But hey, nobody is stopping you from knocking. Except for maybe that growler a brewin', with that one way ticket to your pantaloons if you don't hurry the fuck up!" 
                     }
                 ],
                 "locationKey":"eastHallway-2f",
@@ -238,7 +238,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "There is a door marked Fire Exit that leads to some dimly lit stairs"
+                        "text": "there is a DOOR marked Fire Exit that leads to some dimly lit STAIRS."
                     }
                 ],
                 "locationKey":"eastHallway-2f",
@@ -252,7 +252,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "There is a door marked Supply Closet."
+                        "text": "there is a DOOR marked \"Supply Closet\"."
                     }
                 ],
                 "locationKey":"eastHallway-2f",
@@ -266,7 +266,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "An Elevator that hopefully leads somewhere with a (less lethal) toilet"
+                        "text": "an ELEVATOR that hopefully leads somewhere with a (less lethal) toilet!"
                     }
                 ],
                 "locationKey":"eastHallway-2f",
@@ -280,7 +280,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "The awfully familiar West Hallway."
+                        "text": "the awfully familiar WEST HALLWAY."
                     }
                 ],
                 "locationKey":"eastHallway-2f",
@@ -298,11 +298,11 @@
         "descriptions": [
             {
                 "label": "Main", 
-                "text": "You rush into the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls. But unless you can use them to wipe your ass right now, you don't care!"
+                "text": "The elevator opens and you throw yourself inside frantically. The generic, but relaxing and mildly upbeat elevator music is juxtaposed by the fact that you are about to explode. The doors close and you see the following buttons:"
             },
             {
                 "label": "HasPooped", 
-                "text": "You're in the east hallway. It looks a hell of a lot like the west hallway. There's a few of your stereotypical hotel paintings hung on the walls."
+                "text": "The elevator opens and you catch a wiff of stale farts as you walk inside (probably yours). The elevator music is still playing. The doors close and you see the following buttons."
             }
         ],
         "flags":["CONTAINERBIT"],
@@ -313,7 +313,7 @@
                 "descriptions": [
                     {
                         "label": "Main", 
-                        "text": "Back from whence you came lies the East Hallway."
+                        "text": "back from whence you came, lies the EAST HALLWAY."
                     }
                 ],
                 "locationKey":"elevator-2f",
@@ -366,15 +366,30 @@
     {
         "type": "Room",
         "name": "Stairs",
-        "keyValue": "stairs-2f",
+        "keyValue": "eastHallway2f-stairs",
         "descriptions": [
             {
                 "label": "Main", 
-                "text": "Description Room Stairs (Fire Exit 2f)"
+                "text": "You enter the East Hallway Stairs, but you very quickly feel like you've made a mistake. The one flickering light bulb is barely lit and there is an ominous feeling here. You should turn back."
             }
         ],
         "flags":["CONTAINERBIT"],
-        "exits": {}                   
+        "exits": {
+            "SOUTHWEST":{
+                "keyValue":"exits-stairs-easthallway",
+                "name": "East Hallway",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": " is the door leading back to the east hallway and lot less of a feeling you are going to get assaulted in the dark."
+                    }
+                ],
+                "locationKey":"eastHallway2f-stairs",
+                "connection":"eastHallway-2f",
+                "keyObject": null,
+                "flags":["DOORBIT","OPENBIT"]
+            }
+        }                   
     },
     {
         "type": "Room",
@@ -440,7 +455,7 @@
         ],
         "flags":["CONTAINERBIT"],
         "exits": {}                   
-    }
+    },
     {
         "type": "Room",
         "name": "Women's Bathroom",
@@ -468,6 +483,5 @@
         "exits": {}                   
     }
     
-
    ]
 }

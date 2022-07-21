@@ -31,9 +31,6 @@ class GameObject:
     Methods
     -------
 
-    create_key_value(input_string, casing= "camel")
-        creates a unique key value by combining the key value that is passed in
-        (or generated if none is passed) with the id attribute
     """
 
     _objectid = count(1)
@@ -80,11 +77,19 @@ class GameObject:
         self._location_key = location_key
         self.flags = flags
         self.commands = commands
-        self.commands["look"] = self.look
+        self.commands["look"] = self.describe
         self.commands["examine"] = self.examine
-        self.key_value = self.create_key_value(key_value)
 
-
+        if GameObject.objects_by_key.get(key_value):
+            # The keyvalue is not unique it already exists in the global game dict
+            # print(GameObject.objects_by_key.get(result).name, GameObject.objects_by_key.get(result))
+            # print(self.name, self)
+            # print(GameObject.objects_by_key)
+            raise ValueError(f"Each game object must have a unique key value. {key_value} already exists on "
+                             f"Object: {GameObject.objects_by_key.get(key_value).name}:"
+                             f" {GameObject.objects_by_key.get(key_value)}")
+        else:
+            self.key_value = key_value
         GameObject.objects_by_key[self.key_value] = self
 
     @property
@@ -123,62 +128,13 @@ class GameObject:
         self.flags = [flag for flag in self.flags if flag != flag_to_remove]
 
 
-    def look(self, tokens: ParseTree) ->str:
-        print("looking now")
+    def describe(self)-> str:
+        response = ""
+        response += f"{self.name}: {self.current_description} "
+        return response
 
     def examine(self, tokens: ParseTree) ->str:
         print("Upon further examination...I see nothing special.")
 
-    def create_key_value(self, input_string: str, casing: str = "camel") -> str:
-        """Generate a Key value for the game object being created.
-
-        Format the string so that it returns a key value with no spaces,
-        in camel case
-
-        Parameters
-        ----------
-        input_string : str
-            The string to be formatted as a key value
-        casing: str, optional
-            can be either "camel" (thisIsCamelCase) or "pascal" (ThisIsPascalCase)
-            (default is camel)
-
-        Raises
-        ------
-        ValueError
-            If the key value passed in is an empty string
-
-        ValueError
-            If the key value passed already exists in the game object dictionary
-
-        Returns
-        ---------- 
-        str
-            The generated key value for the game object
-        """
-
-        if not input_string:
-            raise ValueError("key value can not be en empty string")
-
-        casing = casing.lower()
-        delimiters = "[\s,!.]"
-        words = re.split(delimiters, input_string)
-        #words = input_string.split(" ")
-
-        if casing == "camel":
-            words = [word.strip().lower() for word in words[0:1]] + [word.strip().title() for word in words[1:]]
-        elif casing == "pascal":
-            words = [word.strip().title() for word in words]
-
-        else:
-            raise ValueError("casing must be either pascal or camel")
-
-        result = ''.join(words)
-
-        if GameObject.objects_by_key.get(result):
-            #The keyvalue is not unique it already exists in the global game dict
-            raise ValueError(f"Each game object must have a unique key value. {input_string} already exists as "
-                             f"KeyVaue: {result} on another object")
-        return result
 
 

@@ -1,5 +1,5 @@
 from game_object import GameObject
-from game_enums import Flag
+from game_enums import Flag, Direction
 import textwrap
 
 import json
@@ -21,18 +21,24 @@ class Room(GameObject):
     def describe(self)-> str:
         response = ""
         response += f"You are in the {self.name}: {self.current_description}"
-        #output = textwrap.wrap(response,100)
-        #response = '\n'.join(output)
+        response += self.get_exit_descriptions()
         response += "\n\n---Exits---\n\n"
-        response += self.get_exits()
+        response += self.list_exits()
+        return response
+
+    def get_exit_descriptions(self) ->str:
+        response = ''
+        for exit_direction in self.exits.keys():
+            exit_description = self.exits[exit_direction].current_description
+            response += (f" To the {exit_direction.name} {exit_description}")
         return response
 
 
-    def get_exits(self) -> str:
+    def list_exits(self) -> str:
         response = ''
-        for exit in self.exits.keys():
-            exit_description = self.exits[exit].current_description
-            response += (f"To the {exit.name} is the {exit_description}\n")
+        for exit_direction in self.exits.keys():
+            exit_description = self.exits[exit_direction].name
+            response += (f"To the {exit_direction.name} is the {exit_description}\n")
         response += "\n\n"
         return response
 
@@ -55,19 +61,9 @@ class Exit(GameObject):
 
 
 
-
-
-#TODO update JSON "loader" classes
-
 class RoomLoader:
-    def __init__(self, json_file_path):
-        self.json_file_path = json_file_path
-        self.config = self.load_json()
-
-    def load_json(self):
-        with open(self.json_file_path) as json_file:
-            config = json.load(json_file)
-        return config
+    def __init__(self, config):
+        self.config = config
 
     def decode_rooms(self):
         room_list = []
@@ -75,31 +71,29 @@ class RoomLoader:
             descriptions = {}
             for description in room["descriptions"]:
                 descriptions[description["label"]] = description["text"]
-            room_list.append(Room(room["name"], descriptions, room["keyValue"]))
+            if not room["flags"]:
+                flags = [Flag["CONTAINERBIT"]]
+            else:
+                flags = [Flag[flag] for flag in room["flags"]]
+            new_room = (Room(key_value=room["keyValue"], name=room["name"], descriptions=descriptions, flags=flags))
+            self.add_exits(new_room, room["exits"])
+            room_list.append(new_room)
         return room_list
 
-
-
-
-
-class ExitLoader:
-    def __init__(self, json_file_path):
-        self.json_file_path = json_file_path
-        self.config = self.load_json()
-
-    def load_json(self):
-        with open(self.json_file_path) as json_file:
-            config = json.load(json_file)
-        return config
-
-    def decode_exits(self):
-        exit_list = []
-        for exit in self.config["exits"]:
+    def add_exits(self, new_room, exits):
+        for exit_direction in exits.keys():
             descriptions = {}
-            for description in exit["descriptions"]:
+            for description in exits[exit_direction]["descriptions"]:
                 descriptions[description["label"]] = description["text"]
-            connections = {}
-            for connection in exit["connections"]:
-                connections[connection["location"]] = connection
-        exit_list.append(Exit(exit["name"], descriptions, connections, exit["keyValue"]))
-        return exit_list
+            new_exit = Exit(
+                            key_value=exits[exit_direction]["keyValue"],
+                            name=exits[exit_direction]["name"],
+                            descriptions=descriptions,
+                            location_key=exits[exit_direction]["locationKey"],
+                            connection=exits[exit_direction]["connection"],
+                            key_object=exits[exit_direction]["keyObject"],
+                            flags=exits[exit_direction]["flags"]
+            )
+            new_room.exits[Direction[exit_direction.upper()]] = new_exit
+
+

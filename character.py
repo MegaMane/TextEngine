@@ -1,6 +1,7 @@
 from game_object import GameObject
 from game_enums import Flag, Direction
 from game_room import Room
+from story_item import  Container
 
 
 class Character(GameObject):
@@ -13,10 +14,12 @@ class Character(GameObject):
         super().__init__(key_value, name, descriptions, location_key=location_key, flags=flags,
                          commands=commands)
 
+
 class Player(Character):
-    def __init__(self, key_value: str, name: str, descriptions: dict, location_key: str,
+    def __init__(self, key_value: str, name: str, descriptions: dict, location_key: str, inventory: Container,
                  hp: int = 100, sex: str = "Male", flags=[Flag.PLAYERBIT], commands={}):
         self.hpoo = 80
+        self.inventory = inventory
         super().__init__(key_value, name, descriptions, location_key=location_key, hp=hp, sex=sex, flags=flags,
                          commands=commands)
 
@@ -66,8 +69,17 @@ class Player(Character):
                     #Everything is good move the player
                     return self.go_to(exit.connection)
                 else:
-                    #TODO Door is locked check player inventory for key
-                    pass
+                    key = GameObject.objects_by_key.get(exit.key_object)
+                    key_name = (" ".join(key.adjectives) + " " + key.name).strip()
+                    for item in self.inventory.items:
+                        if item == exit.key_object:
+                            exit.remove_flag("LOCKEDBIT")
+                            exit.add_flag("OPENBIT")
+                            self.inventory.remove(item, exit.key_value)
+
+                            return f"The {exit.name} opens with the {key_name}." + self.go_to(exit.connection)
+
+                    return f"The {exit.name} is locked and you don't have the {key_name}."
             else:
                 return "There isn't an exit in that direction!"
         else:

@@ -33,28 +33,31 @@ class Container(StoryItem):
                  slots_occupied: int = 99, total_container_slots: int = 10, container_slots_occupied: int = 0,
                  adjectives: list = [], flags: list = [Flag.CONTAINERBIT], commands: dict = {}):
         self.items = []
-        self.slots_occupied = slots_occupied
         self.total_container_slots = total_container_slots
         self.container_slots_occupied = container_slots_occupied
-        self.synonyms = synonyms
-        self.adjectives = adjectives
-        super().__init__(key_value, name, descriptions, location_key=location_key, flags=flags,
-                         commands=commands)
+
+        super().__init__(key_value, name, descriptions, location_key=location_key, synonyms=synonyms,
+                         slots_occupied=slots_occupied, adjectives=adjectives, flags=flags, commands=commands)
 
 
-    def add_items(self, items):
-        for item in items:
-            if isinstance(item, StoryItem):
-                if item.slots_occupied <= (self.total_container_slots - self.container_slots_occupied):
-                    item.move(self.key_value)
-                    self.items.append(item)
-                    self.container_slots_occupied += item.slots_occupied
-                else:
-                    raise OverflowError(f"Container ony has {self.total_container_slots} slots and"
-                                        f"{self.container_slots_occupied} are full."
-                                        f"{item.name} takes up {item.slots_occupied} slots. That shit won't fit!")
+
+    def add_item(self, item):
+        if isinstance(item, StoryItem):
+            if item.slots_occupied <= (self.total_container_slots - self.container_slots_occupied):
+                item.move(self)
+                self.items.append(item.key_value)
+                self.container_slots_occupied += item.slots_occupied
             else:
-                raise ValueError ("You can't put a non-story item into a container")
+                raise OverflowError(f"Container ony has {self.total_container_slots} slots and"
+                                    f"{self.container_slots_occupied} are full."
+                                    f"{item.name} takes up {item.slots_occupied} slots. That shit won't fit!")
+        else:
+            raise ValueError ("You can't put a non-story item into a container")
+
+    def remove_item(self, item, new_location: str):
+        #item_to_remove = [item for item in items if item.name == "yoyo"]
+        self.items.remove(item.key_value)
+        item.move(new_location)
 
 
 

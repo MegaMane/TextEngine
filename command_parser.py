@@ -32,7 +32,7 @@ class Parser:
     """
     def __init__(self, known_verbs: list):
         self.known_commands = known_verbs
-        self.prepositions = ["in", "on"]
+        self.prepositions = ["in", "on", "at", "from"]
         # through, inside, up, under, over, beside, below, down ...{the apple}
 
     def tokenize(self, user_input: str, game_objects: dict):
@@ -69,37 +69,42 @@ class Parser:
             tokens.response = ("I'm not smart enough to understand more than one preposition per command.")
             return tokens
 
-        if tokens.direct_object_key is None and tokens.verb in ["go", "move", "walk"]:
-            self.check_direction(remaining_input, tokens)
+        if tokens.verb and tokens.direct_object_key is None :
+            remaining_input = [token for token in remaining_input if token not in self.prepositions]
 
-        elif tokens.direct_object_key is None and tokens.verb in SINGLE_WORD_COMMANDS:
-            tokens.input_parsed = True
-            tokens.respons = f"Single word command: {tokens.verb}"
-            return tokens
+            if tokens.verb in ["go", "move", "walk"]:
+                self.check_direction(remaining_input, tokens)
 
-        else:
-            obj = ' '.join(remaining_input)
-            article = 'an' if obj[0] in ['a','e','i','o','u'] else 'a'
-            tokens.response = (f"I don't see {article} {obj}")
+            elif tokens.verb in SINGLE_WORD_COMMANDS:
+                if len(remaining_input) == 0 or remaining_input[0].lower() == 'room':
+                    tokens.input_parsed = True
+                    tokens.response = f"Single word command: {tokens.verb}"
+                    return tokens
+            else:
+                if len(remaining_input) == 0:
+                    tokens.response = f"{tokens.verb} what?"
+
+                else:
+                    #a direct object wasn't found but the user attempted to provide one
+                    obj = ' '.join(remaining_input)
+                    article = 'an' if obj[0] in ['a', 'e', 'i', 'o', 'u'] else 'a'
+                    tokens.response = f"I don't see {article} {obj} here!"
+                tokens.input_parsed = False
+                return tokens
 
         self.is_parsed(parse_tree=tokens)
         return tokens
 
     def get_verb(self, command_parts, parse_tree):
         # Search for the Verb
-        command_name = ""
         offset = -1
-        for command in self.known_commands:
-            command_name = ""
 
-            for index, part in enumerate(command_parts):
-                command_name = " ".join(command_parts[0:index + 1])
-                if command_name in self.known_commands:
-                    parse_tree.verb = command_name
-                    offset = index + 1
-                    break
-            if parse_tree.verb is not None:
-                break
+        for index, part in enumerate(command_parts):
+            command_name = " ".join(command_parts[0:index + 1])
+            if command_name in self.known_commands:
+                parse_tree.verb = command_name
+                offset = index + 1
+
         return offset
 
     def parse_game_objects(self, remaining_input, parse_tree, game_objects):

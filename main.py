@@ -2,6 +2,7 @@ from game_enums import GameState
 from game_controller import Controller
 from globals import START_ROOM
 from game_ui import *
+import time
 
 
 # This is a sample Python script.
@@ -30,8 +31,6 @@ def main_loop():
     controller = game_init()
     ui = UI(controller)
     ui.dialogue.set(go(controller))
-    if controller.gamestate == GameState.GAMEOVER:
-        pass
     ui.root.mainloop()
 
 
