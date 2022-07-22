@@ -1,6 +1,6 @@
 import re
 from game_enums import Direction
-from globals import SINGLE_WORD_COMMANDS
+from globals import SINGLE_VERB_COMMANDS
 
 
 class Parser:
@@ -75,10 +75,10 @@ class Parser:
             if tokens.verb in ["go", "move", "walk"]:
                 self.check_direction(remaining_input, tokens)
 
-            elif tokens.verb in SINGLE_WORD_COMMANDS:
+            elif tokens.verb in SINGLE_VERB_COMMANDS:
                 if len(remaining_input) == 0 or remaining_input[0].lower() == 'room':
                     tokens.input_parsed = True
-                    tokens.response = f"Single word command: {tokens.verb}"
+                    tokens.response = f"Single verb command: {tokens.verb}"
                     return tokens
             else:
                 if len(remaining_input) == 0:

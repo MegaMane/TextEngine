@@ -1,5 +1,5 @@
 import unittest
-import prop
+import story_item
 from command_parser import ParseTree
 from game_enums import Direction
 
@@ -8,7 +8,7 @@ class PropTest(unittest.TestCase):
 
     def test_Television(self):
         tokens = ParseTree()
-        tv = prop.Television(name="Old TV",
+        tv = story_item.Television(name="Old TV",
                         descriptions={"Main": "an old TV with rabbit ears that looks like it came straight out of the 1950's"},
                         location_key="room201",
                         key_value="oldtv-room201",

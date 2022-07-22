@@ -16,7 +16,7 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 128)
 
-SINGLE_WORD_COMMANDS = ["look", "inventory", "help", "save", "quit"]
+SINGLE_VERB_COMMANDS = ["get up", "help", "inventory", "look", "quit", "save"]
 
 START_ROOM = "room201"
 

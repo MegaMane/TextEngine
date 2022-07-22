@@ -43,6 +43,9 @@ class Flag(Enum):
     # like you can a box
     SURFACEBIT = auto()
 
+    #The object is part of a room and can only be interacted with in the room but can never be removed
+    SETPIECEBIT = auto()
+
     # Tells routines like open() the object is locked and can't be opened without the proper equipment
     LOCKEDBIT = auto()
 
@@ -69,8 +72,12 @@ class Flag(Enum):
 
     # The object is on. In the case of a room , this means that the room is lit.
     # Any outdoor room should have an ONBIT. in the case of an object, this means
-    # that the object is providing lgight. On object iwth the ONBIT should als have the LIGHTBIT
+    # that the object is providing light. On object with the ONBIT should als have the LIGHTBIT
     ONBIT = auto()
+
+    # The object is currency and should be added to the players total funds
+    # once taken and not show up as an individual item in inventory
+    MONEYBIT = auto
 
 
 if __name__ == "__main__":
