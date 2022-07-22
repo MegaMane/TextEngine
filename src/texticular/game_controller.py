@@ -1,12 +1,9 @@
 from game_object import GameObject
 from game_room import Room
-from story_item import StoryItem,Container
 from command_parser import Parser, ParseTree
 from globals import *
 from game_enums import *
-import pygame
-from pygame.locals import *
-import textwrap
+
 
 class Controller:
     def __init__(self):

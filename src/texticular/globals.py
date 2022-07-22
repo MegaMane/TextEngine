@@ -1,11 +1,15 @@
 import json
+import os
+
+print(os.path.dirname(__file__))
+# https://towardsdatascience.com/simple-trick-to-work-with-relative-paths-in-python-c072cdc9acb9
 
 def load_json(json_file_path):
     with open(json_file_path) as json_file:
         config = json.load(json_file)
     return config
 
-CONFIG = load_json("./Data/rooms.json")
+CONFIG = load_json("../../data/rooms.json")
 
 HAS_POOPED = False
 

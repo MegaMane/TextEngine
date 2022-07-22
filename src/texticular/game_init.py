@@ -1,5 +1,4 @@
-from game_object import GameObject
-from story_item import StoryItem, Container
+from src.texticular.items.story_item import StoryItem, Container
 import game_room as gr
 import character
 import game_actions as ga
@@ -21,7 +20,7 @@ player = character.Player(key_value="player",
                           descriptions={"Main": "An Angry nerd with dillusions of grandeur."},
                           location_key="room201",
                           inventory=player_inventory
-)
+                          )
 
 #load up map (just the rooms and exits )
 room_loader = gr.RoomLoader(CONFIG)

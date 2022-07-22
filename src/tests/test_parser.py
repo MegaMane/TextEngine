@@ -1,6 +1,6 @@
 import unittest
-from command_parser import *
-from game_object import GameObject
+from src.texticular.command_parser import *
+from src.texticular.game_object import GameObject
 
 
 class ParserTest(unittest.TestCase):

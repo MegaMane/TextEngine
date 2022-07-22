@@ -1,14 +1,13 @@
 import unittest
-from command_parser import *
-import game_room
-from game_enums import Direction
+from src.texticular.command_parser import *
+from src.texticular.game_enums import Direction
 
 
 class RoomTest(unittest.TestCase):
     def setUp(self) -> None:
-        loader = room.RoomLoader("./Data/rooms.json")
+        loader = room.RoomLoader("./data/rooms.json")
         self.rooms = loader.decode_rooms()
-        loader = room.ExitLoader("./Data/rooms.json")
+        loader = room.ExitLoader("./data/rooms.json")
         self.exits = loader.decode_exits()
 
         # loop through all of rooms and check the exits. Link them to the corresponding rooms
