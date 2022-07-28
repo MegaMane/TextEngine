@@ -1,12 +1,15 @@
-from game_object import GameObject
-from game_room import Room
-from command_parser import Parser, ParseTree
-from globals import *
-from game_enums import *
+from texticular.game_object import GameObject
+from texticular.game_room import Room
+from texticular.command_parser import Parser, ParseTree
+from texticular.globals import *
+from texticular.game_enums import *
+
 
 
 class Controller:
     def __init__(self):
+        print("Controller Constructor called")
+        print(GameObject.objects_by_key)
         self.parser = Parser(KNOWN_VERBS)
         self.response = ''
         self.command_history = []

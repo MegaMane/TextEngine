@@ -2,20 +2,83 @@
    "items": [
     {
         "type": "Container",
+        "keyValue":"couch-room201",
         "name": "Couch",
-        "keyValue": "room201-couch",
         "descriptions": [
             {
                 "label": "Main", 
-                "text": "There is an obnoxious orange couch in the corner"
+                "text": "There is an obnoxious orange couch in the corner."
             },
             {
                 "label": "Sitting", 
                 "text": "It kinda smells a little musty."
             }
         ],
+        "locationKey": "room201",
+        "synonyms": ["Sofa","Chair"],
+        "totalContainerSlots": 4,
+        "adjectives":["Obnoxious", "Orange"],
         "flags":["CONTAINERBIT","SETPIECEBIT"],
-        "items":[]
+        "items":[ 
+            {
+                "type": "Currency",
+                "keyValue": "coins-couch-room201",
+                "name": "coins",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "Wow a whole 50 cents! They seem a little sticky, but they'll spend just fine."
+                    }
+                ],
+                "locationKey": "couch-room201",
+                "value": 0.50,
+                "synonyms": ["Money", "Change"],
+                "adjectives": ["Sticky","Purple"],
+                "flags":["TAKEBIT", "MONEYBIT"]
+            }
+        ]
+
+    },
+    {
+        "type": "Container",
+        "keyValue": "nightStand-room201",
+        "name": "Stand",
+        "descriptions": [
+            {
+                "label": "Main", 
+                "text": "Against the wall there is a beat up night stand with a little drawer built into it and an old phone on top"
+            }
+        ],
+        "locationKey": "room201",
+        "synonyms": ["Table"],
+        "totalContainerSlots": 6,
+        "adjectives":["Beat Up", "Night"],
+        "flags":["CONTAINERBIT","SETPIECEBIT","SURFACEBIT","OPENBIT"],
+        "items":[ 
+            {
+                "type": "Phone",
+                "keyValue": "phone-nightStand-room201",
+                "name": "Telephone",
+                "descriptions": [
+                    {
+                        "label": "Main", 
+                        "text": "An old wired telephone that has seen heavy use."
+                    }
+                ],
+                "locationKey": "nightStand-room201",
+                "adjectives": ["Old", "Wired"],
+                "synonyms":  ["Phone","Horn"],
+                "flags":["SETPIECEBIT"],
+                "calls": {
+                    "frontDesk": {
+                        "speedDial": true,
+                        "dialogue": "Sir I assure you we aren't in the business of entertaining prank callers, even if they are (ahem) esteemed guests in our hotel. It is highly unlikely there is a great dane in your bathroom, now goodday sir."    
+
+                    }
+                }
+
+            }
+        ]
 
     }
     

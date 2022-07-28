@@ -1,5 +1,5 @@
 from itertools import count
-from command_parser import ParseTree
+from texticular.command_parser import ParseTree
 import re
 from typing import List, Optional, Dict
 

@@ -1,10 +1,9 @@
 import inspect
 from game_object import  GameObject
-from game_controller import Controller
 
 #print(inspect.getsource(lexer.check_direction))
 
-def action_room201_couch(controller: Controller, target) ->bool:
+def action_room201_couch(controller, target) ->bool:
     tokens = controller.tokens
     couch = target
     if tokens.verb == "sit":

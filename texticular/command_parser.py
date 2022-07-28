@@ -1,6 +1,6 @@
 import re
-from game_enums import Direction
-from globals import SINGLE_VERB_COMMANDS
+from texticular.game_enums import Direction
+from texticular.globals import SINGLE_VERB_COMMANDS
 
 
 class Parser:

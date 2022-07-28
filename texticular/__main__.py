@@ -1,8 +1,9 @@
 from game_enums import GameState
-from game_controller import Controller
+import game_controller as gc
 from globals import START_ROOM
 from game_ui import *
-import time
+from game_init import setup
+from game_object import GameObject
 
 
 # This is a sample Python script.
@@ -10,10 +11,7 @@ import time
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-def game_init():
-    import game_init
-    controller = Controller()
-    return controller
+
 
 def go(controller):
     result = ''
@@ -28,7 +26,10 @@ def go(controller):
 
 
 def main_loop():
-    controller = game_init()
+    setup()
+    print("Objects Created...\n\n")
+    print(GameObject.objects_by_key)
+    controller = gc.Controller()
     ui = UI(controller)
     ui.dialogue.set(go(controller))
     ui.root.mainloop()
