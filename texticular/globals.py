@@ -9,7 +9,7 @@ def load_json(json_file_path):
         config = json.load(json_file)
     return config
 
-CONFIG = load_json("../../data/rooms.json")
+CONFIG = load_json("../data/rooms.json")
 
 HAS_POOPED = False
 

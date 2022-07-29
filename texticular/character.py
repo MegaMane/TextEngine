@@ -1,7 +1,7 @@
 from game_object import GameObject
 from game_enums import Flag
 from game_room import Room
-from src.texticular.items.story_item import Container
+from texticular.items.story_item import Container
 
 
 class Character(GameObject):

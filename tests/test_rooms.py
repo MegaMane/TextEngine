@@ -1,6 +1,5 @@
 import unittest
-from src.texticular.command_parser import *
-from src.texticular.game_enums import Direction
+from texticular import Direction
 
 
 class RoomTest(unittest.TestCase):

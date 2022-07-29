@@ -1,6 +1,6 @@
 import unittest
-from src.texticular.items import story_item
-from src.texticular.command_parser import ParseTree
+from texticular.items import story_item
+from texticular import ParseTree
 
 
 class PropTest(unittest.TestCase):

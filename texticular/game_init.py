@@ -1,4 +1,4 @@
-from src.texticular.items.story_item import StoryItem, Container
+from texticular.items.story_item import StoryItem, Container
 import game_room as gr
 import character
 import game_actions as ga
