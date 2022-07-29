@@ -119,7 +119,39 @@ class Television(StoryItem):
 
 
 class Phone(StoryItem):
-    pass
+    def __init__(self, key_value: str, name: str, descriptions: dict, location_key: str,
+                 synonyms: list = ["Telephone", "Wire", "Horn"], slots_occupied: int = 99, adjectives: list = [],
+                 flags: list = [Flag.SETPIECEBIT], commands: dict = {}, calls={},):
+
+        self.calls = calls
+        super().__init__(key_value, name, descriptions, location_key=location_key, synonyms=synonyms,
+                         slots_occupied=slots_occupied, adjectives=adjectives, flags=flags, commands=commands)
+
+
+class ItemLoader:
+    def __init__(self):
+        self.bullshit = True
+
+    def decode_Items(self,  items_to_process,item_list =[] ):
+        for item in items_to_process:
+            descriptions = {}
+            for description in item["descriptions"]:
+                descriptions[description["label"]] = description["text"]
+            flags = [Flag[flag] for flag in item["flags"]]
+            if item["type"] == "Container":
+                new_item = (Container(key_value=item["keyValue"], name=item["name"], location_key=item["locationKey"],
+                                      descriptions=descriptions, synonyms=item["synonyms"], adjectives=item["adjectives"],
+                                      flags=flags, total_container_slots=item["totalContainerSlots"]))
+                item_list.append(new_item)
+                self.decode_Items(item["items"], item_list)
+
+            else: #Default to StoryItem
+                new_item = (StoryItem(key_value=item["keyValue"], name=item["name"], location_key=item["locationKey"],
+                                      descriptions=descriptions, synonyms=item["synonyms"], adjectives=item["adjectives"],
+                                      flags=flags))
+
+                item_list.append(new_item)
+        return item_list
 
 
 
